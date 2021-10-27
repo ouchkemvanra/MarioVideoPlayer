@@ -11,6 +11,12 @@
 		E19C165C272939F3002E6F65 /* MarioVideoPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E19C1651272939F2002E6F65 /* MarioVideoPlayer.framework */; };
 		E19C1661272939F3002E6F65 /* MarioVideoPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19C1660272939F3002E6F65 /* MarioVideoPlayerTests.swift */; };
 		E19C1662272939F3002E6F65 /* MarioVideoPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = E19C1654272939F2002E6F65 /* MarioVideoPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E19C167227293B7D002E6F65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19C167127293B7D002E6F65 /* AppDelegate.swift */; };
+		E19C167427293B7D002E6F65 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19C167327293B7D002E6F65 /* SceneDelegate.swift */; };
+		E19C167627293B7D002E6F65 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19C167527293B7D002E6F65 /* ViewController.swift */; };
+		E19C167927293B7D002E6F65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E19C167727293B7D002E6F65 /* Main.storyboard */; };
+		E19C167B27293B80002E6F65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E19C167A27293B80002E6F65 /* Assets.xcassets */; };
+		E19C167E27293B80002E6F65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E19C167C27293B80002E6F65 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +35,14 @@
 		E19C1655272939F2002E6F65 /* MarioVideoPlayer.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = MarioVideoPlayer.docc; sourceTree = "<group>"; };
 		E19C165B272939F3002E6F65 /* MarioVideoPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarioVideoPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E19C1660272939F3002E6F65 /* MarioVideoPlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarioVideoPlayerTests.swift; sourceTree = "<group>"; };
+		E19C166F27293B7D002E6F65 /* MarioVideoPlayerExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarioVideoPlayerExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E19C167127293B7D002E6F65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E19C167327293B7D002E6F65 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E19C167527293B7D002E6F65 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E19C167827293B7D002E6F65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E19C167A27293B80002E6F65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E19C167D27293B80002E6F65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E19C167F27293B80002E6F65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +61,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E19C166C27293B7D002E6F65 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -55,6 +76,7 @@
 			children = (
 				E19C1653272939F2002E6F65 /* MarioVideoPlayer */,
 				E19C165F272939F3002E6F65 /* MarioVideoPlayerTests */,
+				E19C167027293B7D002E6F65 /* MarioVideoPlayerExamples */,
 				E19C1652272939F2002E6F65 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -64,6 +86,7 @@
 			children = (
 				E19C1651272939F2002E6F65 /* MarioVideoPlayer.framework */,
 				E19C165B272939F3002E6F65 /* MarioVideoPlayerTests.xctest */,
+				E19C166F27293B7D002E6F65 /* MarioVideoPlayerExamples.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -83,6 +106,20 @@
 				E19C1660272939F3002E6F65 /* MarioVideoPlayerTests.swift */,
 			);
 			path = MarioVideoPlayerTests;
+			sourceTree = "<group>";
+		};
+		E19C167027293B7D002E6F65 /* MarioVideoPlayerExamples */ = {
+			isa = PBXGroup;
+			children = (
+				E19C167127293B7D002E6F65 /* AppDelegate.swift */,
+				E19C167327293B7D002E6F65 /* SceneDelegate.swift */,
+				E19C167527293B7D002E6F65 /* ViewController.swift */,
+				E19C167727293B7D002E6F65 /* Main.storyboard */,
+				E19C167A27293B80002E6F65 /* Assets.xcassets */,
+				E19C167C27293B80002E6F65 /* LaunchScreen.storyboard */,
+				E19C167F27293B80002E6F65 /* Info.plist */,
+			);
+			path = MarioVideoPlayerExamples;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,6 +172,23 @@
 			productReference = E19C165B272939F3002E6F65 /* MarioVideoPlayerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		E19C166E27293B7D002E6F65 /* MarioVideoPlayerExamples */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E19C168027293B80002E6F65 /* Build configuration list for PBXNativeTarget "MarioVideoPlayerExamples" */;
+			buildPhases = (
+				E19C166B27293B7D002E6F65 /* Sources */,
+				E19C166C27293B7D002E6F65 /* Frameworks */,
+				E19C166D27293B7D002E6F65 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MarioVideoPlayerExamples;
+			productName = MarioVideoPlayerExamples;
+			productReference = E19C166F27293B7D002E6F65 /* MarioVideoPlayerExamples.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -149,6 +203,9 @@
 						CreatedOnToolsVersion = 13.0;
 					};
 					E19C165A272939F3002E6F65 = {
+						CreatedOnToolsVersion = 13.0;
+					};
+					E19C166E27293B7D002E6F65 = {
 						CreatedOnToolsVersion = 13.0;
 					};
 				};
@@ -168,6 +225,7 @@
 			targets = (
 				E19C1650272939F2002E6F65 /* MarioVideoPlayer */,
 				E19C165A272939F3002E6F65 /* MarioVideoPlayerTests */,
+				E19C166E27293B7D002E6F65 /* MarioVideoPlayerExamples */,
 			);
 		};
 /* End PBXProject section */
@@ -184,6 +242,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E19C166D27293B7D002E6F65 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E19C167E27293B80002E6F65 /* LaunchScreen.storyboard in Resources */,
+				E19C167B27293B80002E6F65 /* Assets.xcassets in Resources */,
+				E19C167927293B7D002E6F65 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +274,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E19C166B27293B7D002E6F65 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E19C167627293B7D002E6F65 /* ViewController.swift in Sources */,
+				E19C167227293B7D002E6F65 /* AppDelegate.swift in Sources */,
+				E19C167427293B7D002E6F65 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -215,6 +293,25 @@
 			targetProxy = E19C165D272939F3002E6F65 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E19C167727293B7D002E6F65 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E19C167827293B7D002E6F65 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E19C167C27293B80002E6F65 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E19C167D27293B80002E6F65 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		E19C1663272939F3002E6F65 /* Debug */ = {
@@ -437,6 +534,62 @@
 			};
 			name = Release;
 		};
+		E19C168127293B80002E6F65 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UL5C3DWEKM;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MarioVideoPlayerExamples/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vanra.MarioVideoPlayerExamples;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E19C168227293B80002E6F65 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UL5C3DWEKM;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MarioVideoPlayerExamples/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vanra.MarioVideoPlayerExamples;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -463,6 +616,15 @@
 			buildConfigurations = (
 				E19C1669272939F3002E6F65 /* Debug */,
 				E19C166A272939F3002E6F65 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E19C168027293B80002E6F65 /* Build configuration list for PBXNativeTarget "MarioVideoPlayerExamples" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E19C168127293B80002E6F65 /* Debug */,
+				E19C168227293B80002E6F65 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
