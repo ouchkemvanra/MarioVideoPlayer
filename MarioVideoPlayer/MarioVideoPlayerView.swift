@@ -27,21 +27,21 @@ public protocol PlayerOptionControl: NSObjectProtocol{
     func changeSpeed(type: SpeedType)
     func changeQuality(type: QualityType)
 }
-public class VideoLink{
+public final class VideoLink{
     var link: String
     var title: String
     var qualityList: [VideoQuality]
-    init(link: String, title: String, qualityList: [VideoQuality]) {
+    public init(link: String, title: String, qualityList: [VideoQuality]) {
         self.link = link
         self.title = title
         self.qualityList = qualityList
     }
 }
-public class VideoQuality{
+public final class VideoQuality{
     var link: String
     var quality: String
     var isSelected: Bool
-    init(link: String, quality: String){
+    public init(link: String, quality: String){
         self.link = link
         self.quality = quality
         self.isSelected = false
@@ -62,26 +62,54 @@ enum SeekingDirection{
     case left
     case right
 }
-class MarioCoverOptionConfig{
+public final class ImageConfiguration{
+    var playImg: UIImage
+    var pauseImg: UIImage
+    var replayImg: UIImage
+    var nextImg: UIImage
+    var previousImg: UIImage
+    var rewindImg: UIImage
+    var forwardImage: UIImage
+    var thumbImg: UIImage
+    var optionImg: UIImage
+    var airplayImg: UIImage
+    var fullScreenImg: UIImage
+    var exitFullScreenImg: UIImage
+    public init(playImg: UIImage, pauseImg: UIImage, replayImg: UIImage, nextImg: UIImage, previousImg: UIImage, rewindImg: UIImage, forwardImage: UIImage, thumbImg: UIImage, optionImg: UIImage, airplayImg: UIImage, fullScreenImg: UIImage, exitFullScreenImg: UIImage){
+        self.playImg = playImg
+        self.pauseImg = pauseImg
+        self.replayImg = replayImg
+        self.nextImg = nextImg
+        self.previousImg = previousImg
+        self.rewindImg = rewindImg
+        self.forwardImage = forwardImage
+        self.thumbImg = thumbImg
+        self.optionImg = optionImg
+        self.airplayImg = airplayImg
+        self.fullScreenImg = fullScreenImg
+        self.exitFullScreenImg = exitFullScreenImg
+    }
+}
+public class MarioCoverOptionConfig{
     var speed: SpeedType = .normal
     var quality: QualityType = .normal
 }
 
-class MarioPlayerView: UIView{
+public final class MarioVideoPlayerView: UIView{
     //MARK: ------ State -------
-    open var bufferState : MarioPlayerBufferstate = .none {
+    public var bufferState : MarioPlayerBufferstate = .none {
         didSet {
             self.playViewBufferStateChanged(bufferState)
         }
     }
-    open var bufferInterval : TimeInterval = 2.0
-    open var isFullScreen: Bool = false{
+    public var bufferInterval : TimeInterval = 2.0
+    public var isFullScreen: Bool = false{
         didSet{
             self.fullScreenButton.isSelected = isFullScreen
         }
     }
-    open var viewFrame: CGRect = CGRect()
-    open var parentView: UIView?
+    public var viewFrame: CGRect = CGRect()
+    public var parentView: UIView?
     
     //MARK: ------ Constant ------
     let bigButtonSize: CGFloat = 50
@@ -99,8 +127,9 @@ class MarioPlayerView: UIView{
     var startPlaying: Bool = false
     
     /// Config
-    var isAutoPlay: Bool = false
+    public var isAutoPlay: Bool = false
     var optionConfig = MarioCoverOptionConfig()
+    var imageConfig: ImageConfiguration!
     private var rate: Float?{
         didSet{
             guard let rate = rate, let player = player, rate != player.rate else {return}
@@ -173,7 +202,7 @@ class MarioPlayerView: UIView{
     var pulseArray : [CAShapeLayer] = []
     
     //MARK: ------ Delegate
-    weak var delegate: PlayerDelegate?
+    public weak var delegate: PlayerDelegate?
     
     //MARK: ------ Life Cycle ------
     override init(frame: CGRect) {
@@ -181,8 +210,9 @@ class MarioPlayerView: UIView{
         
     }
     
-    convenience init(list: [VideoLink], frame: CGRect, playAt: Int = 0) {
+    public convenience init(list: [VideoLink], frame: CGRect, playAt: Int = 0, imageConfig: ImageConfiguration) {
         self.init(frame: frame)
+        self.imageConfig = imageConfig
         self.videoList = list
         self.selectedVideo = list[playAt]
         self.setup()
@@ -197,16 +227,16 @@ class MarioPlayerView: UIView{
         removeObserve()
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         showHideControl(self.bgView.alpha == 0)
     }
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
     }
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
         self.playerLayer.frame = playerView.bounds
     }
@@ -215,7 +245,7 @@ private var playerItemContext = 0
 
 // MARK: - Option Control
 extension MarioVideoPlayerView: PlayerOptionControl{
-    func changeSpeed(type: SpeedType) {
+    public func changeSpeed(type: SpeedType) {
         switch type {
             case .slow:
                 rate = 0.5
@@ -229,7 +259,7 @@ extension MarioVideoPlayerView: PlayerOptionControl{
         }
     }
     
-    func changeQuality(type: QualityType) {
+    public func changeQuality(type: QualityType) {
         guard let index = selectedVideo?.qualityList.firstIndex(where: {$0.quality == type.value}) else {return}
         guard let link = self.selectedVideo?.qualityList[index].link else {return}
         guard self.selectedVideo?.qualityList[index].isSelected == false else {return}
@@ -280,7 +310,7 @@ extension MarioVideoPlayerView{
             self.player.seek(to: CMTime.init(seconds: second, preferredTimescale: 1))
         }
     }
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == #keyPath(AVPlayerItem.isPlaybackBufferEmpty){
             if let playbackBufferEmpty = change?[.newKey] as? Bool {
                 if playbackBufferEmpty {
@@ -342,7 +372,7 @@ extension MarioVideoPlayerView{
     @objc func playerDidFinishPlaying() {
         if !self.isScrolling{
             self.playButton.isSelected = true
-            self.playButton.setImage(.init(named: "replay"), for: .selected)
+            self.playButton.setImage(imageConfig.replayImg, for: .selected)
             if self.nextButton.isUserInteractionEnabled && isAutoPlay{
                 nextAction(nextButton)
             }
@@ -356,9 +386,9 @@ extension MarioVideoPlayerView{
         if total != current && !playButton.isHidden{
             if playButton.isSelected{
                 
-                playButton.setImage(.init(named: "play"), for: .selected)
+                playButton.setImage(imageConfig.playImg, for: .selected)
             } else{
-                playButton.setImage(.init(named: "pause"), for: .normal)
+                playButton.setImage(imageConfig.pauseImg, for: .normal)
             }
         }
         timeLabel.text = "\(current.asString(style: .positional)) / \(total.asString(style: .positional))"
@@ -504,15 +534,15 @@ extension MarioVideoPlayerView{
         picInPicButton = UIButton.init(frame: .zero)
         fullScreenButton = UIButton.init(frame: .zero)
         
-        setButton(playButton, bg_color: .white, normalImage: .init(named: "pause"),selectedImage: .init(named: "play"), action: #selector(playAction(_:)))
-        setButton(previousButton, bg_color: .white, normalImage: .init(named: "previous"), action: #selector(previousAction(_:)))
-        setButton(nextButton, bg_color: .white, normalImage: .init(named: "next"), action: #selector(nextAction(_:)))
-        setButton(rewindButton, bg_color: .white, normalImage: .init(named: "rewind"), action: #selector(rewindAction(_:)))
-        setButton(forwardButton, bg_color: .white, normalImage: .init(named: "forward"), action: #selector(forwardAction(_:)))
+        setButton(playButton, bg_color: .white, normalImage: imageConfig.pauseImg,selectedImage: .init(named: "play"), action: #selector(playAction(_:)))
+        setButton(previousButton, bg_color: .white, normalImage: imageConfig.previousImg, action: #selector(previousAction(_:)))
+        setButton(nextButton, bg_color: .white, normalImage: imageConfig.nextImg, action: #selector(nextAction(_:)))
+        setButton(rewindButton, bg_color: .white, normalImage: imageConfig.rewindImg, action: #selector(rewindAction(_:)))
+        setButton(forwardButton, bg_color: .white, normalImage: imageConfig.forwardImage, action: #selector(forwardAction(_:)))
         
-        setButton(optionButton, bg_color: .white, normalImage: .init(named: "option"), action: #selector(optionAction(_:)))
-        setButton(picInPicButton, bg_color: .white, normalImage: .init(named: "airplay"), action: #selector(airPlayAction(_:)))
-        setButton(fullScreenButton, bg_color: .white, normalImage: .init(named: "fullscreen"), selectedImage: .init(named: "exitFullScreen"), action: #selector(fullscreenAction(_:)), inset: 5)
+        setButton(optionButton, bg_color: .white, normalImage: imageConfig.optionImg, action: #selector(optionAction(_:)))
+        setButton(picInPicButton, bg_color: .white, normalImage: imageConfig.airplayImg, action: #selector(airPlayAction(_:)))
+        setButton(fullScreenButton, bg_color: .white, normalImage: imageConfig.fullScreenImg, selectedImage: imageConfig.exitFullScreenImg, action: #selector(fullscreenAction(_:)), inset: 5)
         
         bgView.addSubview(playButton)
         bgView.addSubview(previousButton)
@@ -527,14 +557,14 @@ extension MarioVideoPlayerView{
         ///Label
         timeLabel = UILabel.init(frame: .zero)
         timeLabel.textAlignment = .left
-        timeLabel.text = "00:00 / 10:00"
+        timeLabel.text = "00:00 / 00:00"
         timeLabel.textColor = .white
         timeLabel.font = UIFont.systemFont(ofSize: 12)
         timeLabel.translatesAutoresizingMaskIntoConstraints = false
         bgView.addSubview(timeLabel)
         
         ///Slider
-        slider = .init(frame: .zero)
+        slider = .init(thumbImage:imageConfig.thumbImg)
         slider.delegate = self
         slider.translatesAutoresizingMaskIntoConstraints = false
         slider.addTarget(self, action: #selector(sliderValueChanged(_:)), for: .valueChanged)
@@ -635,7 +665,7 @@ extension MarioVideoPlayerView{
         }
         DispatchQueue.main.async {
             sender.isSelected = !sender.isSelected
-            let img = !sender.isSelected ? UIImage.init(named: "pause"):UIImage.init(named: "play")
+            let img = !sender.isSelected ? self.imageConfig.pauseImg:self.imageConfig.playImg
             self.playButton.setImage(img, for: .normal)
             if !sender.isSelected{
                 self.player.play()
@@ -701,7 +731,7 @@ extension MarioVideoPlayerView{
     internal func addDeviceOrientationNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(deviceOrientationWillChange(_:)), name: UIApplication.willChangeStatusBarOrientationNotification, object: nil)
     }
-    open func enterFullScreen(){
+    public func enterFullScreen(){
         let statusBarOrientation = UIApplication.shared.statusBarOrientation
         if statusBarOrientation == .portrait{
             if let v = self.superview?.frame{
@@ -714,12 +744,12 @@ extension MarioVideoPlayerView{
         UIApplication.shared.statusBarOrientation = .landscapeRight
         UIApplication.shared.setStatusBarHidden(false, with: .fade)
     }
-    open func exitFullScreen(){
+    public func exitFullScreen(){
         UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
         UIApplication.shared.statusBarOrientation = .portrait
     }
     
-    open func onDeviceOrientation(_ isFullScreen: Bool, orientation: UIInterfaceOrientation){
+    public func onDeviceOrientation(_ isFullScreen: Bool, orientation: UIInterfaceOrientation){
         self.isFullScreen = isFullScreen
         let statusBarOrientation = UIApplication.shared.statusBarOrientation
         if orientation == statusBarOrientation {

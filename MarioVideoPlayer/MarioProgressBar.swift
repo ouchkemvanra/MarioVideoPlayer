@@ -13,16 +13,18 @@ protocol PanGestureDelegate: AnyObject{
 public class MarioProgressBar: UISlider{
     open var progressView : UIProgressView
     weak var delegate: PanGestureDelegate?
+    private var thumbImage: UIImage?
     
     public override init(frame: CGRect) {
         self.progressView = UIProgressView()
         super.init(frame: frame)
-        configureSlider()
         
     }
     
-    convenience init() {
+    convenience init(thumbImage: UIImage) {
         self.init(frame: CGRect.zero)
+        self.thumbImage = thumbImage
+        configureSlider()
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -49,7 +51,6 @@ public class MarioProgressBar: UISlider{
         maximumTrackTintColor = UIColor.clear
         minimumTrackTintColor = UIColor.white
         
-        let thumbImage = UIImage.init(named: "sliderThumb")
         let normalThumbImage = self.imageSize(image: thumbImage!, scaledToSize: CGSize(width: 15, height: 15))
         setThumbImage(normalThumbImage, for: .normal)
         let highlightedThumbImage = self.imageSize(image: thumbImage!, scaledToSize: CGSize(width: 20, height: 20))

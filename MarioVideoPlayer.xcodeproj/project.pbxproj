@@ -17,7 +17,6 @@
 		E19C167927293B7D002E6F65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E19C167727293B7D002E6F65 /* Main.storyboard */; };
 		E19C167B27293B80002E6F65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E19C167A27293B80002E6F65 /* Assets.xcassets */; };
 		E19C167E27293B80002E6F65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E19C167C27293B80002E6F65 /* LaunchScreen.storyboard */; };
-		E19C168427293F36002E6F65 /* MarioVideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19C168327293F36002E6F65 /* MarioVideoPlayer.swift */; };
 		E1BE1788272A7B9800138A18 /* MarioProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BE1787272A7B9800138A18 /* MarioProgressBar.swift */; };
 		E1BE179C272A884A00138A18 /* MarioUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BE179B272A884A00138A18 /* MarioUtility.swift */; };
 		E1C12119277D665B002470F6 /* MarioSliderThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C12118277D665B002470F6 /* MarioSliderThumbnail.swift */; };
@@ -37,7 +36,7 @@
 		E1C12135277D8FB6002470F6 /* MarioPlayerResourceLoaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C12134277D8FB6002470F6 /* MarioPlayerResourceLoaderManager.swift */; };
 		E1C12137277D90DE002470F6 /* MarioPlayerResourceLoadingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C12136277D90DE002470F6 /* MarioPlayerResourceLoadingRequest.swift */; };
 		E1C12139277D95D5002470F6 /* MarioPlayerOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C12138277D95D5002470F6 /* MarioPlayerOptionView.swift */; };
-		E1C1213B277D96C4002470F6 /* MarioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C1213A277D96C4002470F6 /* MarioPlayerView.swift */; };
+		E1C1213B277D96C4002470F6 /* MarioVideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C1213A277D96C4002470F6 /* MarioVideoPlayerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +63,6 @@
 		E19C167A27293B80002E6F65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E19C167D27293B80002E6F65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E19C167F27293B80002E6F65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E19C168327293F36002E6F65 /* MarioVideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarioVideoPlayer.swift; sourceTree = "<group>"; };
 		E1BE1787272A7B9800138A18 /* MarioProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarioProgressBar.swift; sourceTree = "<group>"; };
 		E1BE1795272A86CA00138A18 /* MarioBundle.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarioBundle.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1BE179B272A884A00138A18 /* MarioUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarioUtility.swift; sourceTree = "<group>"; };
@@ -85,7 +83,7 @@
 		E1C12134277D8FB6002470F6 /* MarioPlayerResourceLoaderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarioPlayerResourceLoaderManager.swift; sourceTree = "<group>"; };
 		E1C12136277D90DE002470F6 /* MarioPlayerResourceLoadingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarioPlayerResourceLoadingRequest.swift; sourceTree = "<group>"; };
 		E1C12138277D95D5002470F6 /* MarioPlayerOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarioPlayerOptionView.swift; sourceTree = "<group>"; };
-		E1C1213A277D96C4002470F6 /* MarioPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarioPlayerView.swift; sourceTree = "<group>"; };
+		E1C1213A277D96C4002470F6 /* MarioVideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarioVideoPlayerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,8 +145,7 @@
 			children = (
 				E19C1654272939F2002E6F65 /* MarioVideoPlayer.h */,
 				E19C1655272939F2002E6F65 /* MarioVideoPlayer.docc */,
-				E19C168327293F36002E6F65 /* MarioVideoPlayer.swift */,
-				E1C1213A277D96C4002470F6 /* MarioPlayerView.swift */,
+				E1C1213A277D96C4002470F6 /* MarioVideoPlayerView.swift */,
 				E1C1211E277D66FE002470F6 /* MarioPlayerCacheAction.swift */,
 				E1C12120277D6770002470F6 /* MarioPlayerCacheConfiguration.swift */,
 				E1C12122277D678E002470F6 /* MarioPlayerCacheManager.swift */,
@@ -375,13 +372,12 @@
 				E1C1211B277D6682002470F6 /* MarioSeekingView.swift in Sources */,
 				E1C12133277D8F68002470F6 /* MairoPlayerResourceLoader.swift in Sources */,
 				E1C12129277D8D3A002470F6 /* MarioPlayerCacheMediaWorker.swift in Sources */,
-				E1C1213B277D96C4002470F6 /* MarioPlayerView.swift in Sources */,
+				E1C1213B277D96C4002470F6 /* MarioVideoPlayerView.swift in Sources */,
 				E1C1212F277D8EC5002470F6 /* MarioPlayerDownloader.swift in Sources */,
 				E1C12127277D8D1B002470F6 /* MarioPlayerCacheMedia.swift in Sources */,
 				E1C12125277D8CD1002470F6 /* MarioPlayerCacheMediaConfiguration.swift in Sources */,
 				E1C12135277D8FB6002470F6 /* MarioPlayerResourceLoaderManager.swift in Sources */,
 				E1C1211F277D66FE002470F6 /* MarioPlayerCacheAction.swift in Sources */,
-				E19C168427293F36002E6F65 /* MarioVideoPlayer.swift in Sources */,
 				E1C12121277D6770002470F6 /* MarioPlayerCacheConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

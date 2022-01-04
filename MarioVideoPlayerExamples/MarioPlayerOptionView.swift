@@ -10,10 +10,15 @@ import UIKit
 protocol PlayerOptionSelectionDelegate: NSObject{
     func optionSelected(_ option: PlayerOption)
 }
-struct PlayerOption{
+public class PlayerOption{
     var id: String
     var icon: UIImage
     var title: String
+    public init (id: String, icon: UIImage, title: String){
+        self.id = id
+        self.icon = icon
+        self.title = title
+    }
 }
 class MarioPlayerOptionView: UIViewController{
     private lazy var tableView: UITableView = {

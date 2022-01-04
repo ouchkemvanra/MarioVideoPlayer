@@ -8,7 +8,7 @@
 import UIKit
 public class MarioUtility: NSObject{
     static public func bundle() -> Bundle {
-        return Bundle(for: MarioVideoPlayer.self)
+        return Bundle(for: MarioUtility.self)
     }
     
     static public func image(_ imageName: String) -> UIImage? {
