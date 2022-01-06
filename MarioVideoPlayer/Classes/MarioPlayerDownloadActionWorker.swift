@@ -78,7 +78,7 @@ open class MarioPlayerDownloadActionWorker: NSObject{
                 let fromOffset = action.range.location
                 let endOffset = action.range.location + action.range.length - 1
                 var request = URLRequest(url: url)
-                request.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData //   local and remote cache policy 缓存策略
+                request.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData 
                 let range = String(format: "bytes=%lld-%lld", fromOffset, endOffset)
                 request.setValue(range, forHTTPHeaderField: "Range")        // set HTTP Header
                 
