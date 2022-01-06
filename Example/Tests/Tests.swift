@@ -1,5 +1,5 @@
 import XCTest
-import MarioVideoPlayer
+//import MarioVideoPlayer
 
 class Tests: XCTestCase {
     
