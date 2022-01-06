@@ -24,6 +24,13 @@ pod 'MarioVideoPlayer'
 
 ouchkemvanra, ouchkemvanra1@gmail.com
 
+## Reference
+- https://techblog.toutiao.com/2017/03/28/fullscreen/
+- https://developer.apple.com/library/content/qa/qa1668/_index.html
+- https://developer.apple.com/documentation/avfoundation
+- https://gist.github.com/onevcat/2d1ceff1c657591eebde
+- Media Cache  [VIMediaCache](https://github.com/vitoziv/VIMediaCache)
+
 ## License
 
 MarioVideoPlayer is available under the MIT license. See the LICENSE file for more info.
