@@ -63,18 +63,21 @@ enum SeekingDirection{
     case right
 }
 public final class ImageConfiguration{
-    var playImg: UIImage
-    var pauseImg: UIImage
-    var replayImg: UIImage
-    var nextImg: UIImage
-    var previousImg: UIImage
-    var rewindImg: UIImage
-    var forwardImage: UIImage
-    var thumbImg: UIImage
-    var optionImg: UIImage
-    var airplayImg: UIImage
-    var fullScreenImg: UIImage
-    var exitFullScreenImg: UIImage
+    var playImg: UIImage = MarioUtility.image("play")!
+    var pauseImg: UIImage = MarioUtility.image("pause")!
+    var replayImg: UIImage = MarioUtility.image("replay")!
+    var nextImg: UIImage = MarioUtility.image("next")!
+    var previousImg: UIImage = MarioUtility.image("previous")!
+    var rewindImg: UIImage = MarioUtility.image("rewind")!
+    var forwardImage: UIImage = MarioUtility.image("forward")!
+    var thumbImg: UIImage = MarioUtility.image("sliderThumb")!
+    var optionImg: UIImage = MarioUtility.image("option")!
+    var airplayImg: UIImage = MarioUtility.image("airplay")!
+    var fullScreenImg: UIImage = MarioUtility.image("fullscreen")!
+    var exitFullScreenImg: UIImage = MarioUtility.image("exitFullScreen")!
+    public init(){
+        
+    }
     public init(playImg: UIImage, pauseImg: UIImage, replayImg: UIImage, nextImg: UIImage, previousImg: UIImage, rewindImg: UIImage, forwardImage: UIImage, thumbImg: UIImage, optionImg: UIImage, airplayImg: UIImage, fullScreenImg: UIImage, exitFullScreenImg: UIImage){
         self.playImg = playImg
         self.pauseImg = pauseImg
@@ -210,7 +213,7 @@ public final class MarioVideoPlayerView: UIView{
         
     }
     
-    public convenience init(list: [VideoLink], frame: CGRect, playAt: Int = 0, imageConfig: ImageConfiguration) {
+    public convenience init(list: [VideoLink], frame: CGRect, playAt: Int = 0, imageConfig: ImageConfiguration = ImageConfiguration()) {
         self.init(frame: frame)
         self.imageConfig = imageConfig
         self.videoList = list
@@ -231,10 +234,9 @@ public final class MarioVideoPlayerView: UIView{
         fatalError("init(coder:) has not been implemented")
     }
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        showHideControl(self.bgView.alpha == 0)
     }
     public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+        showHideControl(self.bgView.alpha == 0)
     }
     public override func layoutSubviews() {
         super.layoutSubviews()
@@ -539,14 +541,14 @@ extension MarioVideoPlayerView{
         picInPicButton = UIButton.init(frame: .zero)
         fullScreenButton = UIButton.init(frame: .zero)
         
-        setButton(playButton, bg_color: .white, normalImage: imageConfig.pauseImg,selectedImage: .init(named: "play"), action: #selector(playAction(_:)))
-        setButton(previousButton, bg_color: .white, normalImage: imageConfig.previousImg, action: #selector(previousAction(_:)))
+        setButton(playButton, bg_color: .white, normalImage: MarioUtility.image("pause"),selectedImage: MarioUtility.image("play"), action: #selector(playAction(_:)))
+        setButton(previousButton, bg_color: .white, normalImage: MarioUtility.image("previous"), action: #selector(previousAction(_:)))
         setButton(nextButton, bg_color: .white, normalImage: imageConfig.nextImg, action: #selector(nextAction(_:)))
         setButton(rewindButton, bg_color: .white, normalImage: imageConfig.rewindImg, action: #selector(rewindAction(_:)))
         setButton(forwardButton, bg_color: .white, normalImage: imageConfig.forwardImage, action: #selector(forwardAction(_:)))
         
         setButton(optionButton, bg_color: .white, normalImage: imageConfig.optionImg, action: #selector(optionAction(_:)))
-        setButton(picInPicButton, bg_color: .white, normalImage: imageConfig.airplayImg, action: #selector(airPlayAction(_:)))
+        setButton(picInPicButton, bg_color: .white, normalImage: imageConfig.airplayImg, action: #selector(airPlayAction(_:)), inset: 4)
         setButton(fullScreenButton, bg_color: .white, normalImage: imageConfig.fullScreenImg, selectedImage: imageConfig.exitFullScreenImg, action: #selector(fullscreenAction(_:)), inset: 5)
         
         bgView.addSubview(playButton)
@@ -633,7 +635,7 @@ extension MarioVideoPlayerView{
             previousButton.trailingAnchor.constraint(equalTo: rewindButton.leadingAnchor, constant: -buttonSpace),
             previousButton.centerYAnchor.constraint(equalTo: playButton.centerYAnchor),
             
-            picInPicButton.heightAnchor.constraint(equalToConstant: smallButtonSize/2),
+            picInPicButton.heightAnchor.constraint(equalToConstant: smallButtonSize),
             picInPicButton.widthAnchor.constraint(equalTo: picInPicButton.heightAnchor),
             picInPicButton.topAnchor.constraint(equalTo: topAnchor, constant: smallSpace),
             picInPicButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: smallSpace),
@@ -746,12 +748,12 @@ extension MarioVideoPlayerView{
             self.layoutIfNeeded()
         }
         UIDevice.current.setValue(UIInterfaceOrientation.landscapeRight.rawValue, forKey: "orientation")
-//        UIApplication.shared.statusBarOrientation = .landscapeRight
-//        UIApplication.shared.setStatusBarHidden(false, with: .fade)
+        UIApplication.shared.statusBarOrientation = .landscapeRight
+        UIApplication.shared.setStatusBarHidden(false, with: .fade)
     }
     public func exitFullScreen(){
         UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
-//        UIApplication.shared.statusBarOrientation = .portrait
+       UIApplication.shared.statusBarOrientation = .portrait
     }
     
     public func onDeviceOrientation(_ isFullScreen: Bool, orientation: UIInterfaceOrientation){
@@ -784,9 +786,9 @@ extension MarioVideoPlayerView{
                     bgView.widthAnchor.constraint(equalTo: superview!.widthAnchor),
                     bgView.heightAnchor.constraint(equalTo: superview!.heightAnchor),
                 ]
-                let topPadding : CGFloat = UIDevice.current.hasNotch ? self.mediumSpace:self.smallSpace
+                let topPadding : CGFloat = self.smallSpace
                 topButtonConstraint = [
-                    picInPicButton.heightAnchor.constraint(equalToConstant: smallButtonSize/2),
+                    picInPicButton.heightAnchor.constraint(equalToConstant: smallButtonSize),
                     picInPicButton.widthAnchor.constraint(equalTo: picInPicButton.heightAnchor),
                     picInPicButton.topAnchor.constraint(equalTo: superview!.topAnchor, constant: topPadding),
                     picInPicButton.leadingAnchor.constraint(equalTo: superview!.leadingAnchor, constant: mediumSpace),
@@ -831,7 +833,7 @@ extension MarioVideoPlayerView{
                 ]
                 
                 topButtonConstraint = [
-                    picInPicButton.heightAnchor.constraint(equalToConstant: smallButtonSize/2),
+                    picInPicButton.heightAnchor.constraint(equalToConstant: smallButtonSize),
                     picInPicButton.widthAnchor.constraint(equalTo: picInPicButton.heightAnchor),
                     picInPicButton.topAnchor.constraint(equalTo: topAnchor, constant: mediumSpace),
                     picInPicButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: mediumSpace),

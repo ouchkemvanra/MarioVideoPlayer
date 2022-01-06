@@ -68,7 +68,7 @@ open class MarioPlayerResourceLoader: NSObject {
     }
 }
 
-// MARK: - VGPlayerResourceLoadingRequestDelegate
+// MARK: - MarioPlayerResourceLoadingRequestDelegate
 extension MarioPlayerResourceLoader: MarioPlayerResourceLoadingRequestDelegate {
     public func resourceLoadingRequest(_ resourceLoadingRequest: MarioPlayerResourceLoadingRequest, didCompleteWithError error: Error?) {
         remove(resourceLoadingRequest.request)

@@ -19,7 +19,7 @@ open class MarioPlayerCacheMediaWorker: NSObject {
     fileprivate var writeBytes: Double = 0.0
     fileprivate var isWritting: Bool = false
     
-    fileprivate let writeFileQueue = DispatchQueue(label: "com.vgplayer.cacheWriteFileQueue")
+    fileprivate let writeFileQueue = DispatchQueue(label: "com.marioplayer.cacheWriteFileQueue")
     fileprivate let kPackageLength = 204800
     
     deinit {
