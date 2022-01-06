@@ -10,6 +10,19 @@
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
+-	Swift 4.2
+-	iOS 11.0+
+-	Xcode 8
+
+## Features
+- [x] Support play local and network 
+- [x] Support sliding forward and backward.
+- [x] Support full screen
+- [x] Slide fast forward and backward
+- [x] Rotated full screen
+- [x] Support replay media
+- [x] Support custom player view
+- [x] Media Cache
 
 ## Installation
 
