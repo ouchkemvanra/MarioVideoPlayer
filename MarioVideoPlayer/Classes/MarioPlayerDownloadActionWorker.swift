@@ -70,7 +70,7 @@ open class MarioPlayerDownloadActionWorker: NSObject{
                     delegate?.downloadActionWorker(self, didReceive: data, isLocal: true)
                     processActions()
                 } else {
-                    let nsError = NSError(domain: "com.vgplayer.downloadActionWorker", code: -1, userInfo: [NSLocalizedDescriptionKey: "Read cache data failed."])
+                    let nsError = NSError(domain: "com.marioplayer.downloadActionWorker", code: -1, userInfo: [NSLocalizedDescriptionKey: "Read cache data failed."])
                     delegate?.downloadActionWorker(self, didFinishWithError: nsError as Error)
                 }
                 
@@ -120,7 +120,7 @@ open class MarioPlayerDownloadActionWorker: NSObject{
     }
 }
 
-// MARK: - VGPlayerDownloadeURLSessionManagerDelegate
+// MARK: - MarioPlayerDownloadeURLSessionManagerDelegate
 extension MarioPlayerDownloadActionWorker: MarioPlayerDownloadeURLSessionManagerDelegate {
     
     public func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
@@ -144,7 +144,7 @@ extension MarioPlayerDownloadActionWorker: MarioPlayerDownloadeURLSessionManager
         cacheMediaWorker.cache(data, forRange: range) { [weak self] (isCache) in
             guard let strongSelf = self else { return }
             if (!isCache) {
-                let nsError = NSError(domain: "com.vgplayer.downloadActionWorker", code: -2, userInfo: [NSLocalizedDescriptionKey: "Write cache data failed."])
+                let nsError = NSError(domain: "com.marioplayer.downloadActionWorker", code: -2, userInfo: [NSLocalizedDescriptionKey: "Write cache data failed."])
                 strongSelf.delegate?.downloadActionWorker(strongSelf, didFinishWithError: nsError as Error)
             }
         }

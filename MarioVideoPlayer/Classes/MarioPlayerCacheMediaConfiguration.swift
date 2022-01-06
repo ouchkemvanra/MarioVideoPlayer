@@ -12,8 +12,8 @@ open class MarioPlayerCacheMediaConfiguration: NSObject, NSCoding, NSCopying{
     public var cacheMedia: MarioPlayerCacheMedia?
     public var url: URL?
     
-    fileprivate let cacheSegmentQueue = DispatchQueue(label: "com.vgplayer.CacheSegmentQueue")
-    fileprivate let cacheDownloadInfoQueue = DispatchQueue(label: "com.vgplayer.CacheDownloadInfoQueue")
+    fileprivate let cacheSegmentQueue = DispatchQueue(label: "com.marioplayer.CacheSegmentQueue")
+    fileprivate let cacheDownloadInfoQueue = DispatchQueue(label: "com.marioplayer.CacheDownloadInfoQueue")
     fileprivate var fileName: String?
     fileprivate var downloadInfo = [Any]()
     

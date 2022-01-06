@@ -8,12 +8,12 @@
 import Foundation
 import MobileCoreServices
 
-// MARK: - VGPlayerDownloaderStatus
+// MARK: - MarioPlayerDownloaderStatus
 public struct MarioPlayerDownloaderStatus {
     
     static let shared = MarioPlayerDownloaderStatus()
     fileprivate var downloadingURLs: NSMutableSet
-    fileprivate let downloaderStatusQueue = DispatchQueue(label: "com.vgplayer.downloaderStatusQueue")
+    fileprivate let downloaderStatusQueue = DispatchQueue(label: "com.marioplayer.downloaderStatusQueue")
     
     init() {
         downloadingURLs = NSMutableSet()
@@ -53,7 +53,7 @@ extension MarioPlayerDownloaderDelegate {
     public func downloader(_ downloader: MarioPlayerDownloader, didFinishedWithError error: Error?) { }
 }
 
-// MARK: - VGPlayerDownloader
+// MARK: - MarioPlayerDownloader
 open class MarioPlayerDownloader: NSObject {
     open fileprivate(set) var url: URL
     open weak var delegate: MarioPlayerDownloaderDelegate?
@@ -139,13 +139,13 @@ open class MarioPlayerDownloader: NSObject {
         
         if isCurrentURLDownloading() {
             let userInfo = [NSLocalizedDescriptionKey: "URL: \(url) alreay in downloading queue."]
-            let error = NSError(domain: "com.vgplayer.download", code: -1, userInfo: userInfo)
+            let error = NSError(domain: "com.marioplayer.download", code: -1, userInfo: userInfo)
             delegate?.downloader(self, didFinishedWithError: error as Error)
         }
     }
 }
 
-// MARK: - VGPlayerDownloadActionWorkerDelegate
+// MARK: - MarioPlayerDownloadActionWorkerDelegate
 extension MarioPlayerDownloader: MarioPlayerDownloadActionWorkerDelegate {
     
     public func downloadActionWorker(_ actionWorker: MarioPlayerDownloadActionWorker, didFinishWithError error: Error?) {
@@ -193,7 +193,7 @@ extension MarioPlayerDownloader: MarioPlayerDownloadActionWorkerDelegate {
             self.cacheMedia = cacheMedia
             let isSetCacheMedia = cacheMediaWorker.set(cacheMedia: cacheMedia)
             if !isSetCacheMedia {
-                let nsError = NSError(domain: "com.vgplayer.cacheMedia", code: -1, userInfo: [NSLocalizedDescriptionKey:"Set cache media failed."])
+                let nsError = NSError(domain: "com.marioplayer.cacheMedia", code: -1, userInfo: [NSLocalizedDescriptionKey:"Set cache media failed."])
                 delegate?.downloader(self, didFinishedWithError: nsError as Error)
                 return
             }

@@ -38,7 +38,7 @@ open class MarioPlayerResourceLoadingRequest: NSObject {
     }
     
     internal func loaderCancelledError() -> Error {
-        let nsError = NSError(domain: "com.vgplayer.resourceloader", code: -3, userInfo: [NSLocalizedDescriptionKey: "Resource loader cancelled"])
+        let nsError = NSError(domain: "com.marioplayer.resourceloader", code: -3, userInfo: [NSLocalizedDescriptionKey: "Resource loader cancelled"])
         return nsError as Error
     }
     
@@ -70,7 +70,7 @@ open class MarioPlayerResourceLoadingRequest: NSObject {
     }
 }
 
-// MARK: - VGPlayerDownloaderDelegate
+// MARK: - MarioPlayerDownloaderDelegate
 extension MarioPlayerResourceLoadingRequest: MarioPlayerDownloaderDelegate {
     public func downloader(_ downloader: MarioPlayerDownloader, didReceiveData data: Data) {
         request.dataRequest?.respond(with: data)

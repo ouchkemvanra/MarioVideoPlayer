@@ -16,7 +16,7 @@ open class MarioPlayerResourceLoaderManager: NSObject {
     
     open weak var delegate: MarioPlayerResourceLoaderManagerDelegate?
     fileprivate var loaders = Dictionary<String, MarioPlayerResourceLoader>()
-    fileprivate let kCacheScheme = "VGPlayerMideaCache"
+    fileprivate let kCacheScheme = "MarioPlayerMideaCache"
     
     public override init() {
         super.init()
@@ -94,7 +94,7 @@ extension MarioPlayerResourceLoaderManager: AVAssetResourceLoaderDelegate {
     
 }
 
-// MARK: - VGPlayerResourceLoaderDelegate
+// MARK: - MarioPlayerResourceLoaderDelegate
 extension MarioPlayerResourceLoaderManager: MarioPlayerResourceLoaderDelegate {
     public func resourceLoader(_ resourceLoader: MarioPlayerResourceLoader, didFailWithError error: Error?) {
         resourceLoader.cancel()

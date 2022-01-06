@@ -548,7 +548,7 @@ extension MarioVideoPlayerView{
         setButton(forwardButton, bg_color: .white, normalImage: imageConfig.forwardImage, action: #selector(forwardAction(_:)))
         
         setButton(optionButton, bg_color: .white, normalImage: imageConfig.optionImg, action: #selector(optionAction(_:)))
-        setButton(picInPicButton, bg_color: .white, normalImage: imageConfig.airplayImg, action: #selector(airPlayAction(_:)))
+        setButton(picInPicButton, bg_color: .white, normalImage: imageConfig.airplayImg, action: #selector(airPlayAction(_:)), inset: 4)
         setButton(fullScreenButton, bg_color: .white, normalImage: imageConfig.fullScreenImg, selectedImage: imageConfig.exitFullScreenImg, action: #selector(fullscreenAction(_:)), inset: 5)
         
         bgView.addSubview(playButton)
@@ -635,7 +635,7 @@ extension MarioVideoPlayerView{
             previousButton.trailingAnchor.constraint(equalTo: rewindButton.leadingAnchor, constant: -buttonSpace),
             previousButton.centerYAnchor.constraint(equalTo: playButton.centerYAnchor),
             
-            picInPicButton.heightAnchor.constraint(equalToConstant: smallButtonSize/2),
+            picInPicButton.heightAnchor.constraint(equalToConstant: smallButtonSize),
             picInPicButton.widthAnchor.constraint(equalTo: picInPicButton.heightAnchor),
             picInPicButton.topAnchor.constraint(equalTo: topAnchor, constant: smallSpace),
             picInPicButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: smallSpace),
@@ -786,9 +786,9 @@ extension MarioVideoPlayerView{
                     bgView.widthAnchor.constraint(equalTo: superview!.widthAnchor),
                     bgView.heightAnchor.constraint(equalTo: superview!.heightAnchor),
                 ]
-                let topPadding : CGFloat = UIDevice.current.hasNotch ? self.mediumSpace:self.smallSpace
+                let topPadding : CGFloat = self.smallSpace
                 topButtonConstraint = [
-                    picInPicButton.heightAnchor.constraint(equalToConstant: smallButtonSize/2),
+                    picInPicButton.heightAnchor.constraint(equalToConstant: smallButtonSize),
                     picInPicButton.widthAnchor.constraint(equalTo: picInPicButton.heightAnchor),
                     picInPicButton.topAnchor.constraint(equalTo: superview!.topAnchor, constant: topPadding),
                     picInPicButton.leadingAnchor.constraint(equalTo: superview!.leadingAnchor, constant: mediumSpace),
@@ -833,7 +833,7 @@ extension MarioVideoPlayerView{
                 ]
                 
                 topButtonConstraint = [
-                    picInPicButton.heightAnchor.constraint(equalToConstant: smallButtonSize/2),
+                    picInPicButton.heightAnchor.constraint(equalToConstant: smallButtonSize),
                     picInPicButton.widthAnchor.constraint(equalTo: picInPicButton.heightAnchor),
                     picInPicButton.topAnchor.constraint(equalTo: topAnchor, constant: mediumSpace),
                     picInPicButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: mediumSpace),
