@@ -32,6 +32,8 @@ TODO: Add long description of the pod here.
 
   s.source_files = 'MarioVideoPlayer/Classes/**/*'
   
+  s.swift_version = '4.2'
+  
   # s.resource_bundles = {
   #   'MarioVideoPlayer' => ['MarioVideoPlayer/Assets/*.png']
   # }

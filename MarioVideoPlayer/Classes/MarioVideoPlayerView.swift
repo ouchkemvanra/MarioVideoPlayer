@@ -746,12 +746,12 @@ extension MarioVideoPlayerView{
             self.layoutIfNeeded()
         }
         UIDevice.current.setValue(UIInterfaceOrientation.landscapeRight.rawValue, forKey: "orientation")
-        UIApplication.shared.statusBarOrientation = .landscapeRight
-        UIApplication.shared.setStatusBarHidden(false, with: .fade)
+//        UIApplication.shared.statusBarOrientation = .landscapeRight
+//        UIApplication.shared.setStatusBarHidden(false, with: .fade)
     }
     public func exitFullScreen(){
         UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
-        UIApplication.shared.statusBarOrientation = .portrait
+//        UIApplication.shared.statusBarOrientation = .portrait
     }
     
     public func onDeviceOrientation(_ isFullScreen: Bool, orientation: UIInterfaceOrientation){

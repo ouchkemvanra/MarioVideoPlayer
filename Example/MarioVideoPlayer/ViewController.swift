@@ -59,7 +59,7 @@ class ViewController: UIViewController, PlayerDelegate, PlayerOptionSelectionDel
         super.viewWillAppear(animated)
         if UIDevice.current.orientation != .portrait{
             UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
-            UIApplication.shared.statusBarOrientation = .portrait
+//            UIApplication.shared.statusBarOrientation = .portrait
         }
     }
     func optionSelected(_ option: PlayerOption) {
