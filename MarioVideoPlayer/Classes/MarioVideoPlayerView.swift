@@ -191,6 +191,7 @@ public final class MarioVideoPlayerView: UIView{
     }
     var playerAsset: AVAsset!
     var playerLayer: AVPlayerLayer!
+    @available(iOS 11.0, *)
     private lazy var routePickerView: AVRoutePickerView = {
         let routePickerView = AVRoutePickerView(frame: .zero)
         routePickerView.isHidden = true
@@ -550,6 +551,11 @@ extension MarioVideoPlayerView{
         setButton(optionButton, bg_color: .white, normalImage: imageConfig.optionImg, action: #selector(optionAction(_:)))
         setButton(picInPicButton, bg_color: .white, normalImage: imageConfig.airplayImg, action: #selector(airPlayAction(_:)), inset: 4)
         setButton(fullScreenButton, bg_color: .white, normalImage: imageConfig.fullScreenImg, selectedImage: imageConfig.exitFullScreenImg, action: #selector(fullscreenAction(_:)), inset: 5)
+        if #available(iOS 11.0, *) {
+            picInPicButton.alpha = 1
+        } else {
+            picInPicButton.alpha = 0
+        }
         
         bgView.addSubview(playButton)
         bgView.addSubview(previousButton)
@@ -724,9 +730,14 @@ extension MarioVideoPlayerView{
         delegate?.didTapOnOption()
     }
     @objc func airPlayAction(_ sender: UIButton){
-        routePickerView.present()
+        if #available(iOS 11.0, *) {
+            routePickerView.present()
+        } else {
+            // Fallback on earlier versions
+        }
     }
 }
+@available(iOS 11.0, *)
 fileprivate extension AVRoutePickerView {
     func present() {
         let routePickerButton = subviews.first(where: { $0 is UIButton }) as? UIButton
