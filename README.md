@@ -42,6 +42,7 @@ ouchkemvanra, ouchkemvanra1@gmail.com
 - https://developer.apple.com/library/content/qa/qa1668/_index.html
 - https://developer.apple.com/documentation/avfoundation
 - https://gist.github.com/onevcat/2d1ceff1c657591eebde
+- https://github.com/VeinGuo/VGPlayer
 - Media Cache  [VIMediaCache](https://github.com/vitoziv/VIMediaCache)
 
 ## License
