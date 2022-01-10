@@ -221,6 +221,12 @@ public final class MarioVideoPlayerView: UIView{
         self.selectedVideo = list[playAt]
         self.setup()
     }
+    public func setPlayer(list: [VideoLink], playAt: Int = 0, imageConfig: ImageConfiguration = ImageConfiguration()){
+        self.imageConfig = imageConfig
+        self.videoList = list
+        self.selectedVideo = list[playAt]
+        self.setup()
+    }
     private func setup(){
         setViewLayout()
         setPlayer()

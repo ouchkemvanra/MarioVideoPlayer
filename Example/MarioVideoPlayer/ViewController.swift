@@ -35,15 +35,18 @@ class ViewController: UIViewController, PlayerDelegate, PlayerOptionSelectionDel
         // To do: player did finish
     }
     
-    var player: MarioVideoPlayerView!
+    lazy var player: MarioVideoPlayerView = {
+        let v = MarioVideoPlayerView.init()
+        v.translatesAutoresizingMaskIntoConstraints = false
+        v.delegate = self
+        v.isAutoPlay = true
+        return v
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .cyan
-        player = MarioVideoPlayerView.init(list: [.init(link: "https://eschool-video.sabay.com/video/G8/Mathematics/5ec265d981768d317075244c-1_360.mp4", title: "360", qualityList: [.init(link: "https://eschool-video.sabay.com/video/G8/Mathematics/5ec265d981768d317075244c-1_360.mp4", quality: "360"), .init(link: "https://eschool-video.sabay.com/video/G8/Mathematics/5ec265d981768d317075244c-1_720.mp4", quality: "720")]), .init(link: "https://eschool-video.sabay.com/video/G8/Mathematics/5ec265d981768d317075244c-1_720.mp4", title: "720", qualityList: [.init(link: "https://eschool-video.sabay.com/video/G8/Mathematics/5ec265d981768d317075244c-1_360.mp4", quality: "360"), .init(link: "https://eschool-video.sabay.com/video/G8/Mathematics/5ec265d981768d317075244c-1_720.mp4", quality: "720")])], frame: .init(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.width * (9/16)))
-        player.translatesAutoresizingMaskIntoConstraints = false
-        player.isAutoPlay = true
-        player.delegate = self
         view.addSubview(player)
+
         
         NSLayoutConstraint.activate([
             player.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -53,6 +56,7 @@ class ViewController: UIViewController, PlayerDelegate, PlayerOptionSelectionDel
             
         ])
         UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+        player.setPlayer(list: [.init(link: "https://eschool-video.sabay.com/video/G8/Mathematics/5ec265d981768d317075244c-1_360.mp4", title: "360", qualityList: [.init(link: "https://eschool-video.sabay.com/video/G8/Mathematics/5ec265d981768d317075244c-1_360.mp4", quality: "360"), .init(link: "https://eschool-video.sabay.com/video/G8/Mathematics/5ec265d981768d317075244c-1_720.mp4", quality: "720")]), .init(link: "https://eschool-video.sabay.com/video/G8/Mathematics/5ec265d981768d317075244c-1_720.mp4", title: "720", qualityList: [.init(link: "https://eschool-video.sabay.com/video/G8/Mathematics/5ec265d981768d317075244c-1_360.mp4", quality: "360"), .init(link: "https://eschool-video.sabay.com/video/G8/Mathematics/5ec265d981768d317075244c-1_720.mp4", quality: "720")])])
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
