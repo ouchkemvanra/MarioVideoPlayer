@@ -273,10 +273,12 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MarioVideoPlayer_Example/Pods-MarioVideoPlayer_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/MarioVideoPlayer/MarioVideoPlayer.framework",
+				"${BUILT_PRODUCTS_DIR}/STPopup/STPopup.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarioVideoPlayer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/STPopup.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
