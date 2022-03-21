@@ -28,7 +28,7 @@ SOFTWARE.
                  LICENSE
                }
   s.author             = { "kemvanra ouch" => "ouchkemvanra1@gmail.com" }
-  s.source       = { :git => "https://github.com/ouchkemvanra/MarioVideoPlayer.git", :tag => "v0.0.2" }
+  s.source       = { :git => "https://github.com/ouchkemvanra/MarioVideoPlayer.git", :tag => "v0.0.3" }
   s.platform = :ios, '9.0'
   s.source_files  = "MarioVideoPlayer/*.{h,m}", "MarioVideoPlayer/**/*.{h,m}"
   s.frameworks = 'AVKit'
