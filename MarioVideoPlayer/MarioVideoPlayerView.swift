@@ -63,31 +63,31 @@ enum SeekingDirection{
     case right
 }
 public final class ImageConfiguration{
-    var playImg: UIImage
-    var pauseImg: UIImage
-    var replayImg: UIImage
-    var nextImg: UIImage
-    var previousImg: UIImage
-    var rewindImg: UIImage
-    var forwardImage: UIImage
-    var thumbImg: UIImage
-    var optionImg: UIImage
-    var airplayImg: UIImage
-    var fullScreenImg: UIImage
-    var exitFullScreenImg: UIImage
+    var playImg: UIImage = MarioUtility.image("play")!
+    var pauseImg: UIImage = MarioUtility.image("pause")!
+    var replayImg: UIImage = MarioUtility.image("replay")!
+    var nextImg: UIImage = MarioUtility.image("next")!
+    var previousImg: UIImage = MarioUtility.image("previous")!
+    var rewindImg: UIImage = MarioUtility.image("rewind")!
+    var forwardImage: UIImage = MarioUtility.image("forward")!
+    var thumbImg: UIImage = MarioUtility.image("sliderThumb")!
+    var optionImg: UIImage = MarioUtility.image("option")!
+    var airplayImg: UIImage = MarioUtility.image("airplay")!
+    var fullScreenImg: UIImage = MarioUtility.image("fullscreen")!
+    var exitFullScreenImg: UIImage = MarioUtility.image("exitFullScreen")!
     public init(playImg: UIImage, pauseImg: UIImage, replayImg: UIImage, nextImg: UIImage, previousImg: UIImage, rewindImg: UIImage, forwardImage: UIImage, thumbImg: UIImage, optionImg: UIImage, airplayImg: UIImage, fullScreenImg: UIImage, exitFullScreenImg: UIImage){
-        self.playImg = playImg
-        self.pauseImg = pauseImg
-        self.replayImg = replayImg
-        self.nextImg = nextImg
-        self.previousImg = previousImg
-        self.rewindImg = rewindImg
-        self.forwardImage = forwardImage
-        self.thumbImg = thumbImg
-        self.optionImg = optionImg
-        self.airplayImg = airplayImg
-        self.fullScreenImg = fullScreenImg
-        self.exitFullScreenImg = exitFullScreenImg
+//        self.playImg = playImg
+//        self.pauseImg = pauseImg
+//        self.replayImg = replayImg
+//        self.nextImg = nextImg
+//        self.previousImg = previousImg
+//        self.rewindImg = rewindImg
+//        self.forwardImage = forwardImage
+//        self.thumbImg = thumbImg
+//        self.optionImg = optionImg
+//        self.airplayImg = airplayImg
+//        self.fullScreenImg = fullScreenImg
+//        self.exitFullScreenImg = exitFullScreenImg
     }
 }
 public class MarioCoverOptionConfig{
