@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E103B18F27E861A20033E4E5 /* imageAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E103B18E27E861A20033E4E5 /* imageAssets.xcassets */; };
 		E19C1656272939F2002E6F65 /* MarioVideoPlayer.docc in Sources */ = {isa = PBXBuildFile; fileRef = E19C1655272939F2002E6F65 /* MarioVideoPlayer.docc */; };
 		E19C165C272939F3002E6F65 /* MarioVideoPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E19C1651272939F2002E6F65 /* MarioVideoPlayer.framework */; };
 		E19C1661272939F3002E6F65 /* MarioVideoPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19C1660272939F3002E6F65 /* MarioVideoPlayerTests.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E103B18E27E861A20033E4E5 /* imageAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = imageAssets.xcassets; sourceTree = "<group>"; };
 		E19C1651272939F2002E6F65 /* MarioVideoPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MarioVideoPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E19C1654272939F2002E6F65 /* MarioVideoPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarioVideoPlayer.h; sourceTree = "<group>"; };
 		E19C1655272939F2002E6F65 /* MarioVideoPlayer.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = MarioVideoPlayer.docc; sourceTree = "<group>"; };
@@ -119,6 +121,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E103B19027E8623C0033E4E5 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				E103B18E27E861A20033E4E5 /* imageAssets.xcassets */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
 		E19C1647272939F2002E6F65 = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +174,7 @@
 				E1C1211A277D6682002470F6 /* MarioSeekingView.swift */,
 				E1BE179B272A884A00138A18 /* MarioUtility.swift */,
 				E1C1211C277D66A2002470F6 /* UIView+Extension.swift */,
+				E103B19027E8623C0033E4E5 /* Support */,
 			);
 			path = MarioVideoPlayer;
 			sourceTree = "<group>";
@@ -325,6 +336,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E103B18F27E861A20033E4E5 /* imageAssets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
