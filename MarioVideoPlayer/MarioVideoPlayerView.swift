@@ -188,12 +188,6 @@ public final class MarioVideoPlayerView: UIView{
     }
     var playerAsset: AVAsset!
     var playerLayer: AVPlayerLayer!
-    private lazy var routePickerView: AVRoutePickerView = {
-        let routePickerView = AVRoutePickerView(frame: .zero)
-        routePickerView.isHidden = true
-        addSubview(routePickerView)
-        return routePickerView
-    }()
     
     //MARK: ------ Constraint
     var superViewConstraint: [NSLayoutConstraint] = []
@@ -717,16 +711,16 @@ extension MarioVideoPlayerView{
         delegate?.didTapOnOption()
     }
     @objc func airPlayAction(_ sender: UIButton){
-        routePickerView.present()
+        if #available(iOS 11.0, *) {
+            let routePickerView = AVRoutePickerView(frame: .zero)
+            routePickerView.isHidden = true
+            addSubview(routePickerView)
+            routePickerView.present()
+        } else {
+            // Fallback on earlier versions
+        }
     }
 }
-fileprivate extension AVRoutePickerView {
-    func present() {
-        let routePickerButton = subviews.first(where: { $0 is UIButton }) as? UIButton
-        routePickerButton?.sendActions(for: .touchUpInside)
-    }
-}
-
 extension MarioVideoPlayerView{
     internal func addDeviceOrientationNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(deviceOrientationWillChange(_:)), name: UIApplication.willChangeStatusBarOrientationNotification, object: nil)
@@ -1078,4 +1072,10 @@ extension UIDevice {
 
 }
 
-
+@available(iOS 11.0, *)
+fileprivate extension AVRoutePickerView {
+    func present() {
+        let routePickerButton = subviews.first(where: { $0 is UIButton }) as? UIButton
+        routePickerButton?.sendActions(for: .touchUpInside)
+    }
+}

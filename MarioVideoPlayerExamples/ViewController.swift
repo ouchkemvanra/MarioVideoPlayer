@@ -8,6 +8,32 @@
 import UIKit
 import MarioVideoPlayer
 
+enum PlayerOptionSetting: String{
+    case speed = "1"
+    case quality = "2"
+    var value: String{
+        return self.rawValue
+    }
+}
+
+enum PlayerSpeedType: String{
+    case slow = "11"
+    case normal = "12"
+    case fast = "13"
+    var value: String{
+        return self.rawValue
+    }
+}
+
+enum PlayerQualityType: String{
+    case low = "21"
+    case normal = "22"
+    case high = "23"
+    var value: String{
+        return self.rawValue
+    }
+}
+
 class ViewController:UIViewController, PlayerDelegate, PlayerOptionSelectionDelegate {
 
     let speedOption : PlayerOption = PlayerOption.init(id: "1", icon: .init(named: "settings")!, title: "Speed")

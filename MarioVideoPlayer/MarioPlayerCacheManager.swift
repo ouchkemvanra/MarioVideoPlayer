@@ -7,9 +7,9 @@
 
 import Foundation
 public extension Notification.Name {
-    static var MarioPlayerCacheManagerDidUpdateCache = Notification.Name.init("com.mario.Customplayer.CacheManagerDidUpdateCache")
-    static var MarioPlayerCacheManagerDidFinishCache = Notification.Name.init("com.mario.Customplayer.CacheManagerDidFinishCache")
-    static var MarioPlayerCacheManagerDidCleanCache = Notification.Name.init("com.mario.Customplayer.CacheManagerDidCleanCache")
+    static var MarioPlayerCacheManagerDidUpdateCache = Notification.Name.init("com.Mario.Customplayer.CacheManagerDidUpdateCache")
+    static var MarioPlayerCacheManagerDidFinishCache = Notification.Name.init("com.Mario.Customplayer.CacheManagerDidFinishCache")
+    static var MarioPlayerCacheManagerDidCleanCache = Notification.Name.init("com.Mario.Customplayer.CacheManagerDidCleanCache")
 }
 
 open class MarioPlayerCacheManager: NSObject{
